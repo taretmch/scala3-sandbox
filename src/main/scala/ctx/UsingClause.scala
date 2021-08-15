@@ -19,21 +19,17 @@ def renderWebsite(path: String)(using Config): String =
 def renderWidget(items: List[String])(using c: Config): String =
   s"${c.baseUrl}:${c.port}/" + items.mkString("/")
 
-object UsingClauses {
-
+object UsingClauses:
   def run(): Unit =
     println(renderWebsite("/home")(using config))
-}
 
 /** Given Instances let you define terms
  *
  *  that can be used by the Scala compiler
  *  to fill in the missing arguments.
  */
-object GivenInstances {
+object GivenInstances:
   /** Single canonical value for `Config` type */
   given Config = config
-
   def run(): Unit =
     println(renderWebsite("/home"))
-}
